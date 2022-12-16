@@ -3,8 +3,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 /**
  * Write a description of class GameWorld here.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Vincent 
+ * @version Dec 16, 2022
  */
 public class GameWorld extends World
 {
@@ -17,5 +17,8 @@ public class GameWorld extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1);
+        
+        Dinosaur dino = new Dinosaur();
+        addObject(dino, 250, 300);
     }
 }
