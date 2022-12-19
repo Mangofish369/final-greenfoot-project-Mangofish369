@@ -18,6 +18,15 @@ public class Dinosaur extends Actor
         image.scale(150,150);
         setImage(image);
     }
+    public void collision(){
+        if(isTouching(Obstacle.class)){
+            removeTouching(Obstacle.class);
+            GameWorld world = (GameWorld) getWorld();
+            world.createObstacle();
+        }
+    }
+    
+    
     public void act() 
     {
         // Add your action code here.
@@ -32,5 +41,7 @@ public class Dinosaur extends Actor
         else if(Greenfoot.isKeyDown("d")){
             move(1);
         }
+        
+        collision();
     }    
 }
