@@ -12,6 +12,12 @@ public class Dinosaur extends Actor
      * Act - do whatever the Dinosaur wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
+    
+    public Dinosaur(){
+        GreenfootImage image = getImage();
+        image.scale(150,150);
+        setImage(image);
+    }
     public void act() 
     {
         // Add your action code here.
