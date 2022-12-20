@@ -26,9 +26,8 @@ public class GameWorld extends World
     }
     
     public void createObstacle(){
-        Obstacle rock = new Obstacle();
         int x = 500;
         int y = 340;
-        addObject(rock, x, y);
+        addObject(new Obstacle(), x, y);
     }
 }

@@ -17,6 +17,15 @@ public class Obstacle extends Actor
     public void act() 
     {
         // Add your action code here.
+        destroy();
         move(-1);
-    }    
+        
+    }
+    public void destroy(){
+        if (Greenfoot.mouseClicked(this)){
+            getWorld().removeObject(this);
+            GameWorld world = (GameWorld) getWorld();
+            world.createObstacle();
+        }
+    }
 }
