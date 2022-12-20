@@ -8,6 +8,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Dinosaur extends Actor
 {
+    private int speed  = 3;
+    private int vSpeed = 3;
     /**
      * Act - do whatever the Dinosaur wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -23,24 +25,52 @@ public class Dinosaur extends Actor
             removeTouching(Obstacle.class);
             GameWorld world = (GameWorld) getWorld();
             world.createObstacle();
+
         }
     }
     
-    
-    public void act() 
-    {
-        // Add your action code here.
-        
-        /*
-         * Movement Keys
-         */
+    /*
+     * Movement Keys
+     */
+    public void direction(){
         if(Greenfoot.isKeyDown("a")){
-            move (-1);
+            moveLeft();
         }
         
         else if(Greenfoot.isKeyDown("d")){
-            move(1);
+            moveRight();
         }
+        
+        else if(Greenfoot.isKeyDown("w")){
+            jump();
+            jump();
+            fall();
+        }
+    }
+    
+    public void moveRight(){
+        setLocation(getX() + speed, getY()); 
+    }
+    
+    public void moveLeft(){
+        setLocation(getX() - speed, getY()); 
+    }
+    
+    public void jump(){
+        setLocation(getX(), getY() - vSpeed);
+    }
+    
+    public void fall(){
+        setLocation(getX(), getY() + vSpeed);
+    }
+    public void act() 
+    {
+        // Add your action code here.
+        direction();
+        
+        
+        
+        
         
         collision();
     }    
