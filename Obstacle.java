@@ -8,6 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Obstacle extends Actor
 {
+    private int speed = 5;
     public void act() 
     {
         if (Greenfoot.mouseClicked(this)){
@@ -15,7 +16,7 @@ public class Obstacle extends Actor
             world.createObstacle();
             getWorld().removeObject(this);
         } else {
-            move(-1);    
+            setLocation (getX() - speed, getY());    
         }
         
         
