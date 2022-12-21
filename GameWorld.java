@@ -21,13 +21,16 @@ public class GameWorld extends World
         Dinosaur dino = new Dinosaur();
         addObject(dino, 250, 300);
         
-        
         createObstacle();
+        
+        addObject(new Platform(), 100,400);
+        addObject(new Platform(), 300,400);
+        addObject(new Platform(), 500,400);
     }
     
     public void createObstacle(){
         int x = 500;
-        int y = 340;
+        int y = 350;
         addObject(new Obstacle(), x, y);
     }
 }

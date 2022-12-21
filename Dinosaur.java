@@ -1,3 +1,4 @@
+
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
@@ -8,8 +9,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Dinosaur extends Actor
 {
-    private int speed  = 3;
-    private int vSpeed = 3;
+    private int speed  = 5;
+    private int vSpeed = 5;
+    private int acceleration = 1;
     /**
      * Act - do whatever the Dinosaur wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -28,7 +30,12 @@ public class Dinosaur extends Actor
 
         }
     }
-    
+    public int getHeight(){
+        GreenfootImage image = getImage();
+        image.scale(150,150);
+        setImage(image);
+        return image.getHeight();
+    }
     /*
      * Movement Keys
      */
@@ -43,8 +50,6 @@ public class Dinosaur extends Actor
         
         else if(Greenfoot.isKeyDown("w")){
             jump();
-            jump();
-            fall();
         }
     }
     
@@ -57,21 +62,33 @@ public class Dinosaur extends Actor
     }
     
     public void jump(){
-        setLocation(getX(), getY() - vSpeed);
+        vSpeed = - 10;
+        fall();
     }
     
     public void fall(){
         setLocation(getX(), getY() + vSpeed);
+        vSpeed = vSpeed + acceleration; 
+    }
+    
+    public boolean onGround(){
+        Actor under = getOneObjectAtOffset( 0, getHeight() /2, Platform.class);
+        return under != null;
+    }
+    
+    public void checkFall(){
+        if(onGround()){
+            vSpeed = 0;
+        }
+        else{
+            fall();
+        }
     }
     public void act() 
     {
         // Add your action code here.
         direction();
-        
-        
-        
-        
-        
+        checkFall();
         collision();
     }    
 }
