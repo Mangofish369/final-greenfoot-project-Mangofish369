@@ -9,7 +9,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Dinosaur extends Actor
 {
-    private int speed  = 5;
+    private int hspeed = 5;
+    private int speed  = hspeed;
     private int vSpeed = 5;
     private int acceleration = 1;
     private int jumpStrength = -20;
@@ -42,11 +43,15 @@ public class Dinosaur extends Actor
      */
     public void direction(){
         if(Greenfoot.isKeyDown("a")){
-            moveLeft();
+            if(getX() != 0){
+                moveLeft();
+            }
         }
         
         if(Greenfoot.isKeyDown("d")){
-            moveRight();
+            if(getX() != 595){
+                moveRight();
+            }
         }
         
         if(Greenfoot.isKeyDown("w")){
@@ -87,6 +92,7 @@ public class Dinosaur extends Actor
             fall();
         }
     }
+
     public void act() 
     {
         // Add your action code here.

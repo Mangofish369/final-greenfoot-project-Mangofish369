@@ -11,7 +11,7 @@ public class Obstacle extends Actor
     private int speed = 5;
     public void act() 
     {
-        if (Greenfoot.mouseClicked(this)){
+        if (Greenfoot.mouseClicked(this) || isAtEdge()){
             GameWorld world = (GameWorld) getWorld();
             world.createObstacle();
             getWorld().removeObject(this);
