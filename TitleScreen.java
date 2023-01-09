@@ -10,6 +10,7 @@ public class TitleScreen extends World
 {
     Label title = new Label("Jumping Dinosaur" , 60);
     Label start = new Label("Space to start", 50);
+    Button play = new Button("start_button.png");
     /**
      * Constructor for objects of class TitleScreen.
      * 
@@ -19,10 +20,11 @@ public class TitleScreen extends World
         super(600,400,1);
         addObject(title, 300, 150);
         addObject(start, 300, 250);
+        addObject(play, 300, 450);
     }
     
     public void act(){
-        if(Greenfoot.isKeyDown("space")){
+        if(Greenfoot.mouseClicked(play)){
             GameWorld game = new GameWorld();
             Greenfoot.setWorld(game);
         }

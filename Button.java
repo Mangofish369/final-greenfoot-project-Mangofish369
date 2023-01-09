@@ -1,21 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
-/**
- * Write a description of class Button here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
-public class Button extends World
+public class Button extends Actor
 {
 
-    /**
-     * Constructor for objects of class Button.
-     * 
-     */
-    public Button()
+    public Button(String image)
     {    
-        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(600, 400, 1); 
+        setImage(new GreenfootImage (image));
     }
 }
