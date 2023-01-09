@@ -9,8 +9,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class TitleScreen extends World
 {
     Label title = new Label("Jumping Dinosaur" , 60);
-    Label start = new Label("Space to start", 50);
-    Button play = new Button("start_button.png");
+    Button play = new Button("start_button.png", 200, 150);
+    //Label start = new Label("Space to start", 50);
+    
     /**
      * Constructor for objects of class TitleScreen.
      * 
@@ -19,8 +20,8 @@ public class TitleScreen extends World
     {
         super(600,400,1);
         addObject(title, 300, 150);
-        addObject(start, 300, 250);
-        addObject(play, 300, 450);
+        addObject(play, 300, 300);
+        //addObject(start, 300, 250);
     }
     
     public void act(){
