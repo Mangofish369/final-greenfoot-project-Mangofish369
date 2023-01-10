@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Obstacle extends Actor
 {
-    private int speed = 5;
+    public static int speed = 5;
     public void act() 
     {
         if (Greenfoot.mouseClicked(this) || getX() == 0){

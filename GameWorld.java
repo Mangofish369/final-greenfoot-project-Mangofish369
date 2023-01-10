@@ -8,7 +8,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class GameWorld extends World
 {
-
+    private int score = 0;
+    Label theScore = new Label("Score: " + score, 40);
     /**
      * Constructor for objects of class GameWorld.
      * 
@@ -26,11 +27,21 @@ public class GameWorld extends World
         addObject(new Platform(), 100,400);
         addObject(new Platform(), 300,400);
         addObject(new Platform(), 500,400);
+        
+        addObject(theScore, 100,50);
     }
     
     public void createObstacle(){
         int x = 700;
         int y = 350;
         addObject(new Obstacle(), x, y);
+    }
+    
+    public void updateScore(){
+        score++;
+        theScore.setValue("Score: " + score);
+    }
+    public void act(){
+        updateScore();
     }
 }
