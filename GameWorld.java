@@ -9,6 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class GameWorld extends World
 {
     private int score = 0;
+    private float difficulty = 1;
     Label theScore = new Label("Score: " + score, 40);
     /**
      * Constructor for objects of class GameWorld.
@@ -24,6 +25,7 @@ public class GameWorld extends World
         
         createObstacle();
         
+        
         addObject(new Platform(), 100,400);
         addObject(new Platform(), 300,400);
         addObject(new Platform(), 500,400);
@@ -34,14 +36,21 @@ public class GameWorld extends World
     public void createObstacle(){
         int x = 700;
         int y = 350;
-        addObject(new Obstacle(), x, y);
+        addObject(new Obstacle(difficulty), x, y);
     }
     
     public void updateScore(){
         score++;
         theScore.setValue("Score: " + score);
     }
+    
+    public void increaseSpeed(){
+        if(score%100 == 0){
+            difficulty+= 1;
+        }
+    }
     public void act(){
         updateScore();
+        increaseSpeed();
     }
 }
