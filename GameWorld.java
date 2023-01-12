@@ -1,10 +1,11 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
-/**
- * Write a description of class GameWorld here.
+/** GameWorld Class:
+ * This class is where the world is created and all the objects are placed into
+ * this world.
  * 
- * @author Vincent 
- * @version Dec 16, 2022
+ * @author Vincent Li
+ * @version Jan 12, 2023
  */
 public class GameWorld extends World
 {

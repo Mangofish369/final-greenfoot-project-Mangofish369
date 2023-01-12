@@ -1,6 +1,10 @@
-
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
+/** Dinosaur Class:
+ * Sets all the rules, actions and interactionof the Dinosaour 
+ * 
+ * @author Vincent Li
+ * @version Jan 12, 2023
+ */
 public class Dinosaur extends Actor
 {
     private int hspeed = 5;

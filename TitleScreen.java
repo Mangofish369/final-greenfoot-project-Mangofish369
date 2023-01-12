@@ -1,5 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
+/** TitleScreen Class:
+ * The starting screen when the game is run.
+ * 
+ * @author Vincent Li
+ * @version Jan 12, 2023
+ */
 public class TitleScreen extends World
 {
     Label title = new Label("Jumping Dinosaur" , 60);

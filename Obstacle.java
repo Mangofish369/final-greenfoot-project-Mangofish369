@@ -1,7 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
-/**
- * Write a description of class Obstacle here.
+/** Obstacle Class:
+ *  Controls the behaviour of the obstacle when it interacts with other things.
  * 
  * @author (your name) 
  * @version (a version number or a date)
