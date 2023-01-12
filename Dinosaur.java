@@ -1,28 +1,23 @@
 
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
-/**
- * Write a description of class Dinosaur here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
 public class Dinosaur extends Actor
 {
     private int hspeed = 5;
     private int speed  = hspeed;
-    private int vSpeed = 5;
-    private int acceleration = 1;
+    private int vSpeed = 5; // Verticle speed
+    private int acceleration = 1; //Acceleration downward
     private int jumpStrength = -20;
-    /**
-     * Act - do whatever the Dinosaur wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
-    
+
     public Dinosaur(){
         GreenfootImage image = getImage();
         image.scale(150,150);
         setImage(image);
+    }
+    
+    
+    public void addedToWorld(World GameWorld){
+        int right_border = GameWorld.getWidth();
     }
     public void collision(){
         if(isTouching(Obstacle.class)){
@@ -32,11 +27,17 @@ public class Dinosaur extends Actor
 
         }
     }
-    public int getHeight(){
+    public int getDinoHeight(){
         GreenfootImage image = getImage();
         image.scale(150,150);
         setImage(image);
         return image.getHeight();
+    }
+    
+    public int getWorldWidth(){
+        World world = getWorld();
+        int worldWidth = world.getWidth();
+        return worldWidth;
     }
     /*
      * Movement Keys
@@ -49,7 +50,7 @@ public class Dinosaur extends Actor
         }
         
         if(Greenfoot.isKeyDown("d")){
-            if(getX() != 595){
+            if(getX() != getWorldWidth() -5 ){
                 moveRight();
             }
         }
@@ -80,7 +81,7 @@ public class Dinosaur extends Actor
     }
     
     public boolean onGround(){
-        Actor under = getOneObjectAtOffset( 0, getHeight() /2, Platform.class);
+        Actor under = getOneObjectAtOffset( 0, getDinoHeight() /2, Platform.class);
         return under != null;
     }
     
