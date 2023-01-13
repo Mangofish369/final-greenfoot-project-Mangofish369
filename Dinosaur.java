@@ -11,7 +11,8 @@ public class Dinosaur extends Actor
     private int speed  = hspeed;
     private int vSpeed = 5; // Verticle speed
     private int acceleration = 1; //Acceleration downward
-    private int jumpStrength = -20;
+    private int jumpStrength = -20; // Jump Height
+    private int hp = 3;
 
     public Dinosaur(){
         GreenfootImage image = getImage();
@@ -19,16 +20,23 @@ public class Dinosaur extends Actor
         setImage(image);
     }
     
+    public int getHp(){
+        return hp;
+    }
     
     public void addedToWorld(World GameWorld){
         int right_border = GameWorld.getWidth();
     }
     public void collision(){
         if(isTouching(Obstacle.class)){
+            hp -= 1;
+            if(hp <= 0){
+                Greenfoot.stop();
+            }
             removeTouching(Obstacle.class);
             GameWorld world = (GameWorld) getWorld();
             world.createObstacle();
-
+            
         }
     }
     public int getDinoHeight(){
