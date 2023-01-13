@@ -7,17 +7,33 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Dinosaur extends Actor
 {
-    private int hspeed = 5;
+    private int hspeed = 6;
     private int speed  = hspeed;
     private int vSpeed = 5; // Verticle speed
     private int acceleration = 1; //Acceleration downward
     private int jumpStrength = -20; // Jump Height
     private int hp = 3;
 
+    //Animation 
+    GreenfootImage[] running = new GreenfootImage[8];
+    GreenfootImage[] jumping = new GreenfootImage[12];
+    GreenfootImage[] dead = new GreenfootImage[8];
+    
+    int imageHeight = 150;
+    int imageWidth = 150;
+    
+    SimpleTimer animationTimer = new SimpleTimer();
     public Dinosaur(){
         GreenfootImage image = getImage();
-        image.scale(150,150);
+        image.scale(imageHeight,imageWidth);
         setImage(image);
+        
+        for(int i = 0; i<running.length; i++){
+            running[i] = new GreenfootImage("images/dinosaur_sprite/png/Run ("+(i+1)+").png");
+            running[i].scale(imageHeight,imageWidth);
+        }
+        setImage(running[0]);
+        animationTimer.mark();
     }
     
     public int getHp(){
@@ -102,12 +118,24 @@ public class Dinosaur extends Actor
             fall();
         }
     }
-
+    int imageIndex = 0;
+    public void animateDinosaur(){
+        if(animationTimer.millisElapsed() < 100){
+            return;
+        }
+        animationTimer.mark();
+        
+        setImage(running[imageIndex]);
+        imageIndex = (imageIndex+1) % running.length;
+        
+        
+    }
     public void act() 
     {
         // Add your action code here.
         direction();
         checkFall();
         collision();
+        animateDinosaur();
     }    
 }

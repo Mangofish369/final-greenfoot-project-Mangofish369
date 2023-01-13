@@ -10,7 +10,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class GameWorld extends World
 {
     private int score = 0;
-    private float difficulty = 1;
+    private double difficulty = 3;
     Label theScore = new Label("Score: " + score, 40);
     Dinosaur dino = new Dinosaur();
     Label hpLabel = new Label ("HP: "+dino.getHp(), 40);
