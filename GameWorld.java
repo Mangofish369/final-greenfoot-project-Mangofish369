@@ -13,7 +13,7 @@ public class GameWorld extends World
     private float difficulty = 1;
     Label theScore = new Label("Score: " + score, 40);
     Dinosaur dino = new Dinosaur();
-    Label hp = new Label ("HP: "+dino.getHp(), 40);
+    Label hpLabel = new Label ("HP: "+dino.getHp(), 40);
     int oddAndEven = 0;
     /**
      * Constructor for objects of class GameWorld.
@@ -49,7 +49,7 @@ public class GameWorld extends World
         addObject(theScore, 100,50);
         
         //HP
-        addObject (hp, 400, 50);
+        addObject (hpLabel, 400, 50);
     }
     
     public void createObstacle(){
@@ -63,9 +63,12 @@ public class GameWorld extends World
         theScore.setValue("Score: " + score);
     }
     
+    //Game end function
     public void updateHP(){
-        dino.getHp();
-        hp.setValue("HP: "+ hp);
+        hpLabel.setValue("HP: "+ dino.getHp());
+        if(dino.getHp() <= 0){
+            Greenfoot.stop();
+        }
     }
     
     //Increase speed of obstacle per 100 points

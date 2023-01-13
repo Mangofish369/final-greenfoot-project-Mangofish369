@@ -30,9 +30,6 @@ public class Dinosaur extends Actor
     public void collision(){
         if(isTouching(Obstacle.class)){
             hp -= 1;
-            if(hp <= 0){
-                Greenfoot.stop();
-            }
             removeTouching(Obstacle.class);
             GameWorld world = (GameWorld) getWorld();
             world.createObstacle();
