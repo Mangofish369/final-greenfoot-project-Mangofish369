@@ -67,9 +67,6 @@ public class GameWorld extends World
     //Game end function
     public void updateHP(){
         hpLabel.setValue("HP: "+ dino.getHp());
-        if(dino.getHp() <= 0){
-            Greenfoot.stop();
-        }
     }
     
     //Increase speed of obstacle per 100 points
@@ -78,9 +75,17 @@ public class GameWorld extends World
             difficulty+= 1;
         }
     }
+    
+    public void endGame(){
+        addObject(new GameOver(), getWidth()/2, getHeight()/2);
+        Greenfoot.stop();
+    }
     public void act(){
         updateScore();
         increaseSpeed();
         updateHP();
+        if(dino.getHp() == 0){
+            endGame();
+        }
     }
 }
