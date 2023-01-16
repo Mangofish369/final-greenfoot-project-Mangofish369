@@ -44,6 +44,7 @@ public class GameWorld extends World
         for (int i = oddAndEven; i < (getWidth()/100); i+=2){
             addObject(new Platform(),i*100, 400);
         }
+        addObject(new Platform(),getWidth(), 400);
         
         //Score label
         addObject(theScore, 100,50);

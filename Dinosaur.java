@@ -12,7 +12,7 @@ public class Dinosaur extends Actor
     private int vSpeed = 5; // Verticle speed
     private int acceleration = 1; //Acceleration downward
     private int jumpStrength = -20; // Jump Height
-    private int hp = 3;
+    private int hp = 100;
 
     //Animation 
     GreenfootImage[] running = new GreenfootImage[8];
@@ -32,6 +32,11 @@ public class Dinosaur extends Actor
             running[i] = new GreenfootImage("images/dinosaur_sprite/png/Run ("+(i+1)+").png");
             running[i].scale(imageHeight,imageWidth);
         }
+        
+        for(int i = 0; i< jumping.length; i++){
+            jumping[i] = new GreenfootImage("images/dinosaur_sprite/png/Jump ("+(i+1)+").png");
+            jumping[i].scale(imageHeight,imageWidth);
+        }        
         setImage(running[0]);
         animationTimer.mark();
     }
@@ -69,13 +74,13 @@ public class Dinosaur extends Actor
      */
     public void direction(){
         if(Greenfoot.isKeyDown("a")){
-            if(getX() != 0){
+            if(getX() >= 5){
                 moveLeft();
             }
         }
         
         if(Greenfoot.isKeyDown("d")){
-            if(getX() != getWorldWidth() -5 ){
+            if(getX() <= getWorldWidth() -25 ){
                 moveRight();
             }
         }
@@ -96,8 +101,10 @@ public class Dinosaur extends Actor
     }
     
     public void jump(){
+        
         vSpeed = jumpStrength;
         fall();
+        
     }
     
     public void fall(){
@@ -118,17 +125,26 @@ public class Dinosaur extends Actor
             fall();
         }
     }
-    int imageIndex = 0;
-    public void animateDinosaur(){
+    int imageIndexRun = 0;
+    public void animateDinosaurRun(){
         if(animationTimer.millisElapsed() < 100){
             return;
         }
         animationTimer.mark();
+
+        setImage(running[imageIndexRun]);
+        imageIndexRun = (imageIndexRun+1) % running.length;   
+    }
+    int imageIndexJump = 0;
+    public void animateDinosaurJump(){
         
-        setImage(running[imageIndex]);
-        imageIndex = (imageIndex+1) % running.length;
+        if(animationTimer.millisElapsed() < 45){
+            return;
+        }
+        animationTimer.mark();
         
-        
+        setImage(jumping[imageIndexJump]);
+        imageIndexJump = (imageIndexJump+1) % jumping.length;
     }
     public void act() 
     {
@@ -136,6 +152,11 @@ public class Dinosaur extends Actor
         direction();
         checkFall();
         collision();
-        animateDinosaur();
+        if(!onGround()){
+            animateDinosaurJump();
+        }
+        else{
+            animateDinosaurRun();
+        }
     }    
 }
