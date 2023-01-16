@@ -16,7 +16,7 @@ public class Dinosaur extends Actor
 
     //Animation 
     GreenfootImage[] running = new GreenfootImage[8];
-    GreenfootImage[] jumping = new GreenfootImage[12];
+    GreenfootImage[] jumping = new GreenfootImage[13];
     GreenfootImage[] dead = new GreenfootImage[8];
     
     int imageHeight = 150;
