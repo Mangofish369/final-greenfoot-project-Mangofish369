@@ -36,7 +36,13 @@ public class Dinosaur extends Actor
         for(int i = 0; i< jumping.length; i++){
             jumping[i] = new GreenfootImage("images/dinosaur_sprite/png/Jump ("+(i+1)+").png");
             jumping[i].scale(imageHeight,imageWidth);
-        }        
+        }
+        
+        for(int i = 0; i<dead.length; i++){
+            dead[i] = new GreenfootImage("images/dinosaur_sprite/png/Dead (" +(i+1)+").png");
+            dead[i].scale(imageHeight, imageWidth);
+        }
+        
         setImage(running[0]);
         animationTimer.mark();
     }
