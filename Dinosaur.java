@@ -152,6 +152,16 @@ public class Dinosaur extends Actor
         setImage(jumping[imageIndexJump]);
         imageIndexJump = (imageIndexJump+1) % jumping.length;
     }
+    int imageIndexDead = 0;
+    public void animateDinosaurDead(){
+        if(animationTimer.millisElapsed() < 100){
+            return;
+        }
+        animationTimer.mark();
+        
+        setImage(dead[imageIndexDead]);
+        imageIndexDead = (imageIndexDead+1) % dead.length;
+    }
     public void act() 
     {
         // Add your action code here.
@@ -160,7 +170,7 @@ public class Dinosaur extends Actor
         collision();
         if(!onGround()){
             animateDinosaurJump();
-        }
+        }    
         else{
             animateDinosaurRun();
         }

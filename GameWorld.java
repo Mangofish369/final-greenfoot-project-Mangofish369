@@ -1,3 +1,4 @@
+
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /** GameWorld Class:
@@ -84,7 +85,7 @@ public class GameWorld extends World
         updateScore();
         increaseSpeed();
         updateHP();
-        if(dino.getHp() == 0){
+        if(dino.getHp() <= 0){
             endGame();
         }
     }
