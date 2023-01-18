@@ -8,10 +8,10 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Obstacle extends Actor
 {
-    public float speed;
+    public double speed;
     
     // Obstacle speed is changed in GameWorld through parameter
-    public Obstacle(float speed){
+    public Obstacle(double speed){
         this.speed = speed;
     }
         

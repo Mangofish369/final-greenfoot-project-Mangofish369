@@ -1,3 +1,4 @@
+
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /** GameWorld Class:
@@ -10,7 +11,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class GameWorld extends World
 {
     private int score = 0;
-    private float difficulty = 1;
+    private double difficulty = 3;
     Label theScore = new Label("Score: " + score, 40);
     Dinosaur dino = new Dinosaur();
     Label hpLabel = new Label ("HP: "+dino.getHp(), 40);
@@ -44,6 +45,7 @@ public class GameWorld extends World
         for (int i = oddAndEven; i < (getWidth()/100); i+=2){
             addObject(new Platform(),i*100, 400);
         }
+        addObject(new Platform(),getWidth(), 400);
         
         //Score label
         addObject(theScore, 100,50);
@@ -66,9 +68,6 @@ public class GameWorld extends World
     //Game end function
     public void updateHP(){
         hpLabel.setValue("HP: "+ dino.getHp());
-        if(dino.getHp() <= 0){
-            Greenfoot.stop();
-        }
     }
     
     //Increase speed of obstacle per 100 points
@@ -77,9 +76,17 @@ public class GameWorld extends World
             difficulty+= 1;
         }
     }
+    
+    public void endGame(){
+        addObject(new GameOver(), getWidth()/2, getHeight()/2);
+        Greenfoot.stop();
+    }
     public void act(){
         updateScore();
         increaseSpeed();
         updateHP();
+        if(dino.getHp() <= 0){
+            endGame();
+        }
     }
 }
