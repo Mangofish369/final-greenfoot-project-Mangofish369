@@ -170,7 +170,10 @@ public class Dinosaur extends Actor
         collision();
         if(!onGround()){
             animateDinosaurJump();
-        }    
+        }
+        else if(hp == 0){
+            setImage(dead[0]);
+        }
         else{
             animateDinosaurRun();
         }
