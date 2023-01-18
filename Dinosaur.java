@@ -12,7 +12,7 @@ public class Dinosaur extends Actor
     private int vSpeed = 5; // Verticle speed
     private int acceleration = 1; //Acceleration downward
     private int jumpStrength = -20; // Jump Height
-    private int hp = 100;
+    private int hp = 1;
 
     //Animation 
     GreenfootImage[] running = new GreenfootImage[8];
@@ -59,8 +59,9 @@ public class Dinosaur extends Actor
             hp -= 1;
             removeTouching(Obstacle.class);
             GameWorld world = (GameWorld) getWorld();
-            world.createObstacle();
-            
+            if(hp > 0){
+                world.createObstacle();
+            }
         }
     }
     public int getDinoHeight(){
@@ -171,8 +172,10 @@ public class Dinosaur extends Actor
         if(!onGround()){
             animateDinosaurJump();
         }
-        else if(hp == 0){
+        else if(hp <= 0){
             setImage(dead[0]);
+            speed = 0;
+            jumpStrength = 0;
         }
         else{
             animateDinosaurRun();

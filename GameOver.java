@@ -11,6 +11,6 @@ public class GameOver extends Actor
     Button playAgain = new Button("start_button.png", 200, 150);
     public GameOver()
     {    
-        setImage(new GreenfootImage("GAMEOVER", 80, Color.WHITE, new Color(0,0,0,50)));
+        setImage(new GreenfootImage("GAMEOVER", 80, Color.WHITE, new Color(10,10,10,15)));
     }
 }
