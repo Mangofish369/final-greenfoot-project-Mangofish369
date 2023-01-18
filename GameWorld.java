@@ -15,6 +15,7 @@ public class GameWorld extends World
     Label theScore = new Label("Score: " + score, 40);
     Dinosaur dino = new Dinosaur();
     Label hpLabel = new Label ("HP: "+dino.getHp(), 40);
+    Button playAgain = new Button("start_button.png", 200, 150);
     int oddAndEven = 0;
     /**
      * Constructor for objects of class GameWorld.
@@ -79,6 +80,10 @@ public class GameWorld extends World
     
     public void endGame(){
         addObject(new GameOver(), getWidth()/2, getHeight()/2);
+        addObject(playAgain, 100,100);
+        if(Greenfoot.mouseClicked(playAgain)){
+            Greenfoot.setWorld(new GameWorld());
+        }
         Greenfoot.stop();
     }
     public void act(){
