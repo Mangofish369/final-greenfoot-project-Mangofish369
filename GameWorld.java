@@ -14,8 +14,7 @@ public class GameWorld extends World
     Label theScore = new Label("Score: " + score, 40);
     Dinosaur dino = new Dinosaur();
     Label hpLabel = new Label ("HP: "+dino.getHp(), 40);
-    //GreenfootImage restart = new GreenfootImage("restart_button.png");
-    Button playAgain = new Button("restart_button.png", 200, 150);
+    Button playAgain = new Button("restart_button.png", 75, 75);
     Label gameOver = new Label("Game Over",80);
     int oddAndEven = 0;
     /**
