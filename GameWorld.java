@@ -1,4 +1,3 @@
-
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /** GameWorld Class:
@@ -15,6 +14,8 @@ public class GameWorld extends World
     Label theScore = new Label("Score: " + score, 40);
     Dinosaur dino = new Dinosaur();
     Label hpLabel = new Label ("HP: "+dino.getHp(), 40);
+    Button playAgain = new Button("restart_button.png", 75, 75);
+    Label gameOver = new Label("Game Over",80);
     int oddAndEven = 0;
     /**
      * Constructor for objects of class GameWorld.
@@ -78,15 +79,24 @@ public class GameWorld extends World
     }
     
     public void endGame(){
-        addObject(new GameOver(), getWidth()/2, getHeight()/2);
-        Greenfoot.stop();
+        addObject(gameOver, getWidth()/2, getHeight()/2);
+        addObject(playAgain, getWidth()/2,(getHeight()/2) +100);
+        if(Greenfoot.mouseClicked(playAgain)){
+            Greenfoot.setWorld(new GameWorld());
+        }
+        //Greenfoot.stop();
     }
     public void act(){
-        updateScore();
-        increaseSpeed();
-        updateHP();
+        
+        
         if(dino.getHp() <= 0){
             endGame();
         }
+        
+        else if(dino.getHp() > 0){
+            updateScore();
+        }
+        increaseSpeed();
+        updateHP();
     }
 }
