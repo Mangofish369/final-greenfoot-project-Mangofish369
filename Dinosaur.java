@@ -12,7 +12,7 @@ public class Dinosaur extends Actor
     private int vSpeed = 5; // Verticle speed
     private int acceleration = 1; //Acceleration downward
     private int jumpStrength = -20; // Jump Height
-    private int hp = 1;
+    private int hp = 3;
 
     //Animation 
     GreenfootImage[] running = new GreenfootImage[8];
