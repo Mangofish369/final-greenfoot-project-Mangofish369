@@ -1,6 +1,8 @@
-# Final Greenfoot Project
-This is the README.md file.
+# Final Greenfoot Project: Dino Run 
+You as the dinosaur will be placed into an endless running world, keep running and avoid the obstacles or else you lose.
 
-Dinosaur offline game recreated
+W for jump
+D for forward
+S for backward
 
-* Make sure to give credit for sprites used (https://www.gameart2d.com/free-dino-sprites.html)
+Game Art Credit: (https://www.gameart2d.com/free-dino-sprites.html)
