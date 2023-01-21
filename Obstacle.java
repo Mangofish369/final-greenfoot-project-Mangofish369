@@ -9,7 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Obstacle extends Actor
 {
     public double speed;
-    GameWorld world = (GameWorld) getWorld();
+    
     // Obstacle speed is changed in GameWorld through parameter
     public Obstacle(double speed){
         this.speed = speed;
@@ -20,6 +20,7 @@ public class Obstacle extends Actor
         setLocation (getX() - (int)speed, getY());
         //When at edge of the world, delete and spawn a new one
         if (getX() <= 0){
+            GameWorld world = (GameWorld) getWorld();
             world.createObstacle();
             getWorld().removeObject(this);
         }
