@@ -7,7 +7,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class TitleScreen extends World
 {
-    Label title = new Label("Jumping Dinosaur" , 60);
+    Label title = new Label("The Dinosaur Run" , 60);
     Button play = new Button("start_button.png", 200, 150);
     
     public TitleScreen()
