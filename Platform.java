@@ -4,7 +4,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * 
  * 
  * @author Vincent Li
- * @version Jan 12, 2023
+ * @version January 21, 2023
  */
 public class Platform extends Actor
 {

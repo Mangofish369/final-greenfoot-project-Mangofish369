@@ -1,14 +1,14 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
-/**
- * Write a description of class GameOver here.
+/** GameOver Class
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * Display the endgame message
+ * 
+ * @author Vincent Li
+ * @version January 21, 2023
  */
 public class GameOver extends Actor
 {
-    Button playAgain = new Button("start_button.png", 200, 150);
     public GameOver()
     {    
         setImage(new GreenfootImage("GAMEOVER", 80, Color.WHITE, new Color(10,10,10,15)));

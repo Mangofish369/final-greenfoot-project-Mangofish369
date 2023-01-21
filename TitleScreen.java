@@ -3,7 +3,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * The starting screen when the game is run.
  * 
  * @author Vincent Li
- * @version Jan 12, 2023
+ * @version January 21, 2023
  */
 public class TitleScreen extends World
 {

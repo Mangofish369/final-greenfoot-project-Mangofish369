@@ -3,8 +3,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 /** Obstacle Class:
  *  Controls the behaviour of the obstacle when it interacts with other things.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Vincent Li
+ * @version January 21, 2023
  */
 public class Obstacle extends Actor
 {
