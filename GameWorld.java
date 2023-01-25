@@ -17,6 +17,7 @@ public class GameWorld extends World
     Button playAgain = new Button("restart_button.png", 75, 75);
     Label gameOver = new Label("Game Over",80);
     int oddAndEven = 0;
+    GreenfootSound gameOverSound = new GreenfootSound("gameOver.mp3");
     /**
      * Constructor for objects of class GameWorld.
      * 
@@ -79,6 +80,7 @@ public class GameWorld extends World
     }
     
     public void endGame(){
+        
         addObject(gameOver, getWidth()/2, getHeight()/2);
         addObject(playAgain, getWidth()/2,(getHeight()/2) +100);
         if(Greenfoot.mouseClicked(playAgain)){
@@ -90,6 +92,7 @@ public class GameWorld extends World
         
         
         if(dino.getHp() <= 0){
+            gameOverSound.play();
             endGame();
         }
         

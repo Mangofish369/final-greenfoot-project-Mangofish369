@@ -19,6 +19,9 @@ public class Dinosaur extends Actor
     GreenfootImage[] jumping = new GreenfootImage[13];
     GreenfootImage[] dead = new GreenfootImage[8];
     
+    //Sound
+    GreenfootSound jumpSound = new GreenfootSound("elephantcub.mp3");
+    
     int imageHeight = 150;
     int imageWidth = 150;
     
@@ -94,6 +97,7 @@ public class Dinosaur extends Actor
         
         if(Greenfoot.isKeyDown("w")){
             if(onGround()){
+                jumpSound.play();
                 jump();
             }
         }
